@@ -32,4 +32,15 @@ window.onload = function() {
   for (let x = 0; x < nombredominios.length; x++) {
     console.log(nombredominios[x]);
   }
+  let parrafo = document.getElementById("domain_generator");
+
+  // Agregar los nombres de dominio como párrafos
+  nombredominios.forEach(nombre => {
+    // Crear un nuevo elemento de párrafo
+    let nuevoParrafo = document.createElement("p");
+    // Asignar el texto del nombre de dominio al párrafo
+    nuevoParrafo.textContent = nombre;
+    // Agregar el párrafo al párrafo principal
+    parrafo.appendChild(nuevoParrafo);
+  });
 };
