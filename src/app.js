@@ -10,37 +10,42 @@ window.onload = function() {
   let adj = ["great", "big"];
   let noun = ["jogger", "racoon"];
 
-  const generarNombres = () => {
-    let nombredominios = [];
-    // Iterar sobre el array pronoun que a su vez itera sobre adj y este a su vex itera sobre noum
+  const generateDomains = () => {
+    let domainNames = [];
+
+    // Iterating over the pronoun array which in turn iterates over adj and this in turn iterates over noun
     for (let i = 0; i < pronoun.length; i++) {
       for (let a = 0; a < adj.length; a++) {
         for (let n = 0; n < noun.length; n++) {
-          // Agregar el nombre de dominio al array.
-          let nombredominio = pronoun[i] + adj[a] + noun[n] + ".com";
-          nombredominios.push(nombredominio);
+          // Adding the domain name to the array
+          let domainName = pronoun[i] + adj[a] + noun[n] + ".com";
+          domainNames.push(domainName);
         }
       }
     }
-    // Retornar el array con todas las combinaciones posibles
-    return nombredominios;
+
+    // Returning the array with all possible combinations
+    return domainNames;
   };
 
-  let nombredominios = generarNombres(pronoun, adj, noun);
+  let domainNames = generateDomains(pronoun, adj, noun);
 
-  // Imprimir los nombres de dominio correctamente
-  for (let x = 0; x < nombredominios.length; x++) {
-    console.log(nombredominios[x]);
+  // Printing the domain names correctly
+  for (let x = 0; x < domainNames.length; x++) {
+    console.log(domainNames[x]);
   }
-  let parrafo = document.getElementById("domain_generator");
 
-  // Agregar los nombres de dominio como párrafos
-  nombredominios.forEach(nombre => {
-    // Crear un nuevo elemento de párrafo
-    let nuevoParrafo = document.createElement("p");
-    // Asignar el texto del nombre de dominio al párrafo
-    nuevoParrafo.textContent = nombre;
-    // Agregar el párrafo al párrafo principal
-    parrafo.appendChild(nuevoParrafo);
+  let paragraph = document.getElementById("domain_generator");
+
+  // Adding the domain names as paragraphs
+  domainNames.forEach(domain => {
+    // Creating a new paragraph element
+    let newParagraph = document.createElement("p");
+
+    // Assigning the domain name text to the paragraph
+    newParagraph.textContent = domain;
+
+    // Adding the paragraph to the main paragraph
+    paragraph.appendChild(newParagraph);
   });
 };
